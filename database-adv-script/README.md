@@ -1,10 +1,10 @@
-# Subqueries
+# Aggregations and Window Functions
 
-This task demonstrates writing non-correlated and correlated subqueries.
+This task demonstrates SQL aggregation and ranking.
 
 ## Files
-- **subqueries.sql**: Contains subquery practice queries.
+- **aggregations_and_window_functions.sql**: Contains aggregation and window function queries.
 
 ## Queries Implemented
-1. Non-correlated subquery → Properties where average rating > 4.0.
-2. Correlated subquery → Users with more than 3 bookings.
+1. Aggregation with GROUP BY → Total number of bookings per user.
+2. Window function with RANK → Rank properties by total bookings received.
