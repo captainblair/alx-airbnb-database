@@ -12,9 +12,17 @@ This task demonstrates how indexes improve query performance.
 ## Measuring Performance
 
 ### Before Indexes
-Run:
 ```sql
 EXPLAIN SELECT u.name, COUNT(b.id)
 FROM users u
 JOIN bookings b ON u.id = b.user_id
 GROUP BY u.id;
+
+After Indexes
+
+EXPLAIN SELECT u.name, COUNT(b.id)
+FROM users u
+JOIN bookings b ON u.id = b.user_id
+GROUP BY u.id;
+
+
