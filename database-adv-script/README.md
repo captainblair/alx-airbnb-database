@@ -1,12 +1,10 @@
-# Complex SQL Joins
+# Subqueries
 
-This project covers writing SQL queries with different types of joins.
+This task demonstrates writing non-correlated and correlated subqueries.
 
 ## Files
-- **joins_queries.sql**: Contains queries using INNER JOIN, LEFT JOIN, and FULL OUTER JOIN.
-- **README.md**: This file.
+- **subqueries.sql**: Contains subquery practice queries.
 
 ## Queries Implemented
-1. INNER JOIN → Bookings with the users who made them.
-2. LEFT JOIN → Properties with their reviews (including properties with no reviews).
-3. FULL OUTER JOIN → All users and all bookings, even if they don’t match.
+1. Non-correlated subquery → Properties where average rating > 4.0.
+2. Correlated subquery → Users with more than 3 bookings.
