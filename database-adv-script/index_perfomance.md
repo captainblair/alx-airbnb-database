@@ -1,4 +1,4 @@
-# Index Optimization
+# Index Performance
 
 This task demonstrates how indexes improve query performance.
 
@@ -12,7 +12,7 @@ This task demonstrates how indexes improve query performance.
 ## Measuring Performance
 
 ### Before Indexes
-Query:
+Run:
 ```sql
 EXPLAIN SELECT u.name, COUNT(b.id)
 FROM users u
