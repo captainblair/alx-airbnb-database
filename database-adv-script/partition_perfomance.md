@@ -1,18 +1,34 @@
 # Partitioning Performance Report
 
-## Initial Setup
-The `bookings` table was growing large, causing slower query performance when filtering by date ranges (`start_date` column).
+This document shows the partitioning approach applied to the `bookings` table and the observed performance improvement when querying by date ranges.
+
+## Problem
+The `bookings` table grows large and queries filtering by `start_date` were performing full-table scans and taking too long.
 
 ## Partitioning Approach
-We created a new table `bookings_partitioned` using **RANGE partitioning** on the `start_date` column:
-- `bookings_2023` → for rows in year 2023  
-- `bookings_2024` → for rows in year 2024  
-- `bookings_future` → for rows in year 2025 and beyond  
+We implemented **RANGE partitioning** on the `start_date` column (partitioning by year) and created year-based partitions.
 
-## Queries Tested
-A sample query was executed to fetch bookings within the year 2024:
-
+## SQL used to create partitioned table and partitions
 ```sql
-EXPLAIN ANALYZE
-SELECT * FROM bookings_partitioned
-WHERE start_date BETWEEN '2024-01-01' AND '2024-12-31';
+-- partitioning.sql (summary)
+DROP TABLE IF EXISTS bookings_partitioned;
+
+CREATE TABLE bookings_partitioned (
+  id SERIAL PRIMARY KEY,
+  user_id INT NOT NULL,
+  property_id INT NOT NULL,
+  start_date DATE NOT NULL,
+  end_date DATE NOT NULL,
+  status VARCHAR(50),
+  created_at TIMESTAMP DEFAULT NOW()
+)
+PARTITION BY RANGE (EXTRACT(YEAR FROM start_date));
+
+CREATE TABLE bookings_2023 PARTITION OF bookings_partitioned
+  FOR VALUES FROM (2023) TO (2024);
+
+CREATE TABLE bookings_2024 PARTITION OF bookings_partitioned
+  FOR VALUES FROM (2024) TO (2025);
+
+CREATE TABLE bookings_future PARTITION OF bookings_partitioned
+  FOR VALUES FROM (2025) TO (MAXVALUE);
