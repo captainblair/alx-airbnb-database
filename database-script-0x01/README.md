@@ -4,8 +4,8 @@ This directory contains SQL scripts to populate the AirBnB database with sample 
 
 ## Files
 - `seed.sql` : SQL INSERT statements for all tables including Users, Properties, Bookings, Payments, Reviews, and Messages.
-- `README.md` : This file describing the seed data.
+- `README.md` : Description of the seed data.
 
 ## Purpose
-- Provide realistic sample data for testing queries and database operations.
-- Supports multiple users, properties, bookings, and associated transactions.
+- Provides realistic sample data for testing queries and database operations.
+- Includes multiple users, properties, bookings, payments, reviews, and messages.
