@@ -1,17 +1,11 @@
-# AirBnB Database Schema
+# AirBnB Database Seed Data
 
-This directory contains the SQL DDL for the AirBnB database project.
+This directory contains SQL scripts to populate the AirBnB database with sample data.
 
 ## Files
-- `schema.sql` : SQL script to create all tables, set constraints, and indexes.
-- `README.md`  : This file describing the schema.
+- `seed.sql` : SQL INSERT statements for all tables including Users, Properties, Bookings, Payments, Reviews, and Messages.
+- `README.md` : This file describing the seed data.
 
-## Tables
-1. `users`
-2. `properties`
-3. `bookings`
-4. `payments`
-5. `reviews`
-6. `messages`
-
-All foreign keys, primary keys, constraints, and indexes are included to ensure data integrity and performance.
+## Purpose
+- Provide realistic sample data for testing queries and database operations.
+- Supports multiple users, properties, bookings, and associated transactions.
